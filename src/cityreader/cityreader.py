@@ -25,15 +25,18 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    with open("cities.csv") as csv_file:
-      csv_reader = csv.reader(csv_file, delimiter='')
+    with open("c:/Users/coope/Desktop/Git/CS/1 Intro to Python and OOP/Sprint/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv") as csv_file:
+      csv_reader = csv.reader(csv_file, delimiter=',')
       line_count = 0
       for row in csv_reader:
         if line_count == 0:
-          print(f"Column names are {','.join(row)}")
+          print(f"Column names are {', '.join(row)}")
           line_count += 1
         else:
-          print(f"\t{row[0]} <--city {row[1]} <-- state {row[2]} <-- county {row[3]} <-- lat {row[4]} <-- lon {row[5]} <-- pop {row[6]} <-- density {row[7]} <-- timezone {row[8]} <-- zips")
+          City({row[0]}, {row[3]}, {row[4]})
+          # cities.append(row[3])
+          # cities.append(row[4])
+          print(f"\t{row[0]}, {row[3]}, {row[4]}")
           line_count += 1
       print(f"Processed {line_count} lines.")
     return cities
